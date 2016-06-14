@@ -8,7 +8,10 @@ module.exports = function (app) {
 
     var urlService = new URLService();
 
+    app.route('/new/:data*')
+        .get(urlService.shortenURL);
+
     app.route('/:data')
-        .get(urlService.shortenUrl);
+        .get(urlService.enlargeURL);
 
 };
