@@ -62,7 +62,7 @@ function URLService () {
                     error: err
                 });
             }
-            return res.json({original_url: originalUrl, short_url: url.shortened});
+            return res.json({original_url: originalUrl, short_url: process.env.APP_URL + url.shortened});
         });
     };
 
