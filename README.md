@@ -1,5 +1,5 @@
-#FreeCodeCamp URL shortener MicroService
+# FreeCodeCamp URL shortener MicroService
 
+[![Build Status](https://travis-ci.org/ferzerkerx/fcc-url-shortener-ms.svg?branch=master)](https://travis-ci.org/ferzerkerx/fcc-url-shortener-ms)
 
 [Click](https://www.freecodecamp.com/challenges/url-shortener-microservice) For More Information
-[See it running](https://fcc-url-shortener-ms-ferzerkerx.c9users.io) 
