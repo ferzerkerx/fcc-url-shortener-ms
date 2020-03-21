@@ -1,7 +1,7 @@
 {
   "name": "fcc-url-shortener-ms",
   "version": "0.0.1",
-  "main": "server.js",
+  "main": "src/server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ferzerkerx/fcc-url-shortener-ms"
@@ -17,13 +17,58 @@
     "Mongoose"
   ],
   "scripts": {
-    "start": "node server.js"
+    "start": "node src/server.js",
+    "test": "jest --testMatch **/__tests__/**/*.test.js",
+    "format": "yarn prettier \"{src,config}/**/*.{js,ts,tsx,json}\" --write",
+    "lint": "eslint 'src/**/*.{js,ts}'"
   },
   "author": "Fernando Montes",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^8.0.0",
     "express": "^4.12.4",
+    "dotenv": "^8.0.0",
     "mongoose": "^5.0.17"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.(test|integration|spec).(ts|js)?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).(ts|js)?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "coverageReporters": [
+      "lcov"
+    ]
+  },
+  "lint-staged": {
+    "./{src,config}/**/*.{js,ts,tsx,json}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "engines": {
+    "node": "12.x"
   }
 }

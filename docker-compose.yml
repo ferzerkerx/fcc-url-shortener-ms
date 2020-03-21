@@ -1,0 +1,25 @@
+version: '3.3'
+
+networks:
+  default:
+    driver: bridge
+
+services:
+  mongoDB:
+    image: mongo:4.0-xenial
+    ports:
+      - "27017"
+
+  app:
+    image: fcc-url-shortener-ms:latest
+    ports:
+      - "3000:8080"
+    depends_on:
+      - mongoDB
+    links:
+      - mongoDB
+    networks:
+      - default
+    environment:
+      MONGO_URI: mongodb://mongoDB:27017/shortenerDB
+      APP_URL: http://localhost:3000/
