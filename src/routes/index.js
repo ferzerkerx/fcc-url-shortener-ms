@@ -1,11 +1,12 @@
 'use strict';
 
 var URLService = require('../service/URLService.js');
+var UrlRepository = require('../service/UrlRepository.js');
 
 module.exports = function(app) {
-  var urlService = new URLService();
+  const urlService = new URLService(new UrlRepository());
 
-  app.route('/new/:data*').get(urlService.shortenURL);
+  app.route('/new/:data*').get((req, res) => urlService.shortenURL(req, res));
 
-  app.route('/:data').get(urlService.enlargeURL);
+  app.route('/:data').get((req, res) => urlService.enlargeURL(req, res));
 };
