@@ -22,7 +22,7 @@
   "author": "Fernando Montes",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^8.0.0",
+    "dotenv": "^9.0.1",
     "express": "^4.12.4",
     "mongoose": "^5.0.17"
   }
